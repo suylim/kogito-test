@@ -10,15 +10,15 @@
     </informationRequirement>
     <decisionTable id="_E96EA0C8-53AC-4B0D-A080-52EF7363D60F" typeRef="string" hitPolicy="UNIQUE" label="Can Drive ?">
       <input id="_AA65B6A2-0604-4A9A-842D-57EF8B9FC453">
-        <inputExpression id="_CC35DC2C-9F07-440C-9A94-5794FFA39826">
-          <text>Input-1</text>
+        <inputExpression id="_CC35DC2C-9F07-440C-9A94-5794FFA39826" typeRef="number">
+          <text>Age</text>
         </inputExpression>
       </input>
       <output id="_D79C986F-A877-4BBE-81A5-2CB867AEB0D8" name="Output-1" />
       <annotation name="Annotations" />
       <rule id="_F07BF6A5-19A4-4B6D-A08F-5413A5AFAC24">
         <inputEntry id="_4D18C53D-96FA-4A36-A780-EE010677FF7C">
-          <text></text>
+          <text>&gt;=16</text>
         </inputEntry>
         <outputEntry id="_8FE0F483-FBCC-4669-AD27-F7E753604B13">
           <text>&quot;Yes&quot;</text>
@@ -29,7 +29,7 @@
       </rule>
       <rule id="_6F3A675B-4D8B-4A67-91D9-8020DEAC1E62">
         <inputEntry id="_6F113BB5-35A9-40F7-A6DA-FDA664DF98E0">
-          <text>-</text>
+          <text>&lt;16</text>
         </inputEntry>
         <outputEntry id="_288457EB-3EEA-4F1B-9BF2-820E0C02BB82">
           <text>&quot;No&quot;</text>
