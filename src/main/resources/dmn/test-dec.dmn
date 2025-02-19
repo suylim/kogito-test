@@ -59,6 +59,48 @@
     <informationRequirement id="_C13C9320-41AB-4239-A459-7B58D60ACCFA">
       <requiredInput href="#_BBBF015C-1C39-4C4A-AB0D-AB2D06D42FDE" />
     </informationRequirement>
+    <decisionTable id="_2638A620-F70F-4A0F-9992-AB38E2896DC7" hitPolicy="UNIQUE" label="Base Prem">
+      <input id="_C09C3AA3-3779-4B01-80DF-12ED20294984">
+        <inputExpression id="_1777C06A-ABFE-4FC4-83F9-8D6F627D1C40" typeRef="number">
+          <text>Traveller.age</text>
+        </inputExpression>
+      </input>
+      <output id="_7364B5DF-1393-447B-8F0B-F4326DA36DA1" name="Output-1" />
+      <annotation name="Annotation" />
+      <rule id="_57DED84F-2349-4F7A-9E6D-827965E55486">
+        <inputEntry id="_FD8D2F93-87EC-4170-BFBA-FAA9362486DA">
+          <text>&lt;25</text>
+        </inputEntry>
+        <outputEntry id="_A4B18E5C-DF95-4CBC-AC49-F4931A2A6C72">
+          <text>75</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>&quot;Younger than 25&quot;</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_8DB1306A-C872-4AEC-8D17-5EE3C26BDB10">
+        <inputEntry id="_DA5E32B8-13C4-4426-873D-6C32CB27F1C5">
+          <text>[25..65]</text>
+        </inputEntry>
+        <outputEntry id="_054C82C0-C314-4DD9-B71F-49B79E4A040B">
+          <text>50</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>&quot;Between 25 and 65&quot;</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_4D23CF34-4EA2-497C-BA89-8B988CB42C36">
+        <inputEntry id="_F71A1AD2-D166-4720-B0E3-31FBE18EB1DC">
+          <text>&gt;65</text>
+        </inputEntry>
+        <outputEntry id="_7FE9F84B-A3EC-41E1-AA52-F7CB8FA86A01">
+          <text>100</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>&quot;Older than 65&quot;</text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <decision name="Claim Assessment" id="_9C66E5B0-8669-4F80-9AE0-5A371B1D49FE">
     <variable name="Claim Assessment" id="_355696B8-912D-446D-BC7A-A40F21CEDB34" />
@@ -85,6 +127,20 @@
           <kie:ComponentWidths dmnElementRef="_222D90F6-548F-4F39-BAEE-EF76C5751E07">
             <kie:width>60</kie:width>
             <kie:width>118</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_47283FDD-0D29-4A5F-BC69-FE95966E0A6F">
+            <kie:width>60</kie:width>
+            <kie:width>129</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>142</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_2638A620-F70F-4A0F-9992-AB38E2896DC7">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
