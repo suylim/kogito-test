@@ -1,44 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_F45B6F61-B77E-48EC-AB44-40C08B1B284A" id="_D626F7B6-30F8-443D-8AA1-1C80DE0645AF" name="DMN_BBF124EA-17D6-473D-AD4F-9992593A35F0">
-  <inputData name="Age" id="_58FDA848-1E68-4294-8282-AE901358B878">
-    <variable name="Age" id="_F37D9000-5B18-4B44-97F4-DE187DE3E01E" typeRef="number" />
+  <itemDefinition id="_D9FC2462-F01D-4C38-8198-0B43896B7464" name="Trip details" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_FF160D67-45C9-4F3B-9525-FCC78EFB7DE2" name="countries" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_624A9B04-754A-400A-9AE5-DDA69890ED47" name="end date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_3BC04343-1FE9-4EDC-B21B-7FC9DF176F05" name="start date" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_D78C7FA2-256B-4BB4-99E8-7F0E0D9DDB10" name="Traveller" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_84E9583F-82C7-4BA9-AF3A-9147B76952A1" name="med hist" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_95AF98F5-ACD1-4D5A-AE0D-0E7256C5786D" name="age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_81DE5CD7-C22F-42B4-B600-DA8CF6368954" name="claim hist" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>claim</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_4AE63F4D-52C2-4666-8A0C-F8A4DE72CCB2" name="claim" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_67BFF707-B40D-4AC7-BCAA-2CD85EA4F1A1" name="tdate" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_5F8C7AD2-B238-4E92-B582-79C14AC244FF" name="total amt" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_61989EB1-ECF3-4E42-9ED3-A9871FE8B21A" name="status" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <inputData name="Traveller" id="_BBBF015C-1C39-4C4A-AB0D-AB2D06D42FDE">
+    <variable name="Traveller" id="_5926ECED-C470-4E21-AA48-E1282F4127A6" typeRef="Traveller" />
   </inputData>
-  <decision name="Can Drive ?" id="_F7707522-2F10-4024-A80A-328B47503F2C">
-    <variable name="Can Drive ?" id="_9EFD9617-B0D6-4539-98B5-32EC08F5B87F" typeRef="string" />
-    <informationRequirement id="_293D4DFF-E015-4DCA-93A7-75AEBCFC1EDC">
-      <requiredInput href="#_58FDA848-1E68-4294-8282-AE901358B878" />
+  <inputData name="Trip Details" id="_E95E272D-902D-47C9-B82F-1D3598950BCC">
+    <variable name="Trip Details" id="_40CFD4D2-FCC5-4ECA-B858-973F2F8F0A4D" typeRef="Trip details" />
+  </inputData>
+  <decision name="Final Prem" id="_70E21FAE-BB72-4A9A-92DE-9DA8331876BE">
+    <variable name="Final Prem" id="_32B413E7-00DF-4A9F-A6C4-A7D8A1B9BA3A" typeRef="number" />
+    <informationRequirement id="_497D8C5C-664A-402B-BD17-2EE4082DA79F">
+      <requiredDecision href="#_F7408573-220F-4443-9176-49AF7DF39F48" />
     </informationRequirement>
-    <decisionTable id="_E96EA0C8-53AC-4B0D-A080-52EF7363D60F" typeRef="string" hitPolicy="UNIQUE" label="Can Drive ?">
-      <input id="_AA65B6A2-0604-4A9A-842D-57EF8B9FC453">
-        <inputExpression id="_CC35DC2C-9F07-440C-9A94-5794FFA39826" typeRef="number">
-          <text>Age</text>
-        </inputExpression>
-      </input>
-      <output id="_D79C986F-A877-4BBE-81A5-2CB867AEB0D8" name="Output-1" />
-      <annotation name="Annotations" />
-      <rule id="_F07BF6A5-19A4-4B6D-A08F-5413A5AFAC24">
-        <inputEntry id="_4D18C53D-96FA-4A36-A780-EE010677FF7C">
-          <text>&gt;=16</text>
-        </inputEntry>
-        <outputEntry id="_8FE0F483-FBCC-4669-AD27-F7E753604B13">
-          <text>&quot;Yes&quot;</text>
-        </outputEntry>
-        <annotationEntry>
-          <text>// Your annotations here</text>
-        </annotationEntry>
-      </rule>
-      <rule id="_6F3A675B-4D8B-4A67-91D9-8020DEAC1E62">
-        <inputEntry id="_6F113BB5-35A9-40F7-A6DA-FDA664DF98E0">
-          <text>&lt;16</text>
-        </inputEntry>
-        <outputEntry id="_288457EB-3EEA-4F1B-9BF2-820E0C02BB82">
-          <text>&quot;No&quot;</text>
-        </outputEntry>
-        <annotationEntry>
-          <text></text>
-        </annotationEntry>
-      </rule>
-    </decisionTable>
+    <informationRequirement id="_48C1C9E6-2D40-49E1-B310-28D457C7DE74">
+      <requiredDecision href="#_9C66E5B0-8669-4F80-9AE0-5A371B1D49FE" />
+    </informationRequirement>
+    <informationRequirement id="_A042BDEB-50F5-42B0-9C6A-63F669CCDEDC">
+      <requiredDecision href="#_68146672-50FB-4666-B89D-7B85313210C8" />
+    </informationRequirement>
+    <informationRequirement id="_47D6D992-5FAA-4E89-A078-0A1CFB15CC78">
+      <requiredDecision href="#_0EA72230-B5B7-462F-BA53-2B3B2F5FD552" />
+    </informationRequirement>
+  </decision>
+  <decision name="Base Prem" id="_68146672-50FB-4666-B89D-7B85313210C8">
+    <variable name="Base Prem" id="_78090E13-BE61-4008-B15C-CE9ABAEF4F83" />
+    <informationRequirement id="_C13C9320-41AB-4239-A459-7B58D60ACCFA">
+      <requiredInput href="#_BBBF015C-1C39-4C4A-AB0D-AB2D06D42FDE" />
+    </informationRequirement>
+  </decision>
+  <decision name="Claim Assessment" id="_9C66E5B0-8669-4F80-9AE0-5A371B1D49FE">
+    <variable name="Claim Assessment" id="_355696B8-912D-446D-BC7A-A40F21CEDB34" />
+    <informationRequirement id="_567EB1B6-9324-429D-8BD7-AE2CC93E98D8">
+      <requiredInput href="#_BBBF015C-1C39-4C4A-AB0D-AB2D06D42FDE" />
+    </informationRequirement>
+  </decision>
+  <decision name="Medical Asses" id="_F7408573-220F-4443-9176-49AF7DF39F48">
+    <variable name="Medical Asses" id="_1FE3703A-078B-4D37-A43E-49EAF2BCC6E2" />
+    <informationRequirement id="_8891D537-91AF-482F-82FB-3A34D41687DA">
+      <requiredInput href="#_BBBF015C-1C39-4C4A-AB0D-AB2D06D42FDE" />
+    </informationRequirement>
+  </decision>
+  <decision name="Dest Risk" id="_0EA72230-B5B7-462F-BA53-2B3B2F5FD552">
+    <variable name="Dest Risk" id="_94341A75-69CE-4B18-A340-58C17E3F1188" />
+    <informationRequirement id="_40EB6A1A-F2E7-4F10-8049-74CC770A1F7D">
+      <requiredInput href="#_E95E272D-902D-47C9-B82F-1D3598950BCC" />
+    </informationRequirement>
   </decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_E506FA5F-ADE6-4F56-A3FA-33524A4156DC" name="Default DRD" useAlternativeInputDataShape="false">
@@ -48,23 +86,60 @@
             <kie:width>60</kie:width>
             <kie:width>118</kie:width>
           </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_E96EA0C8-53AC-4B0D-A080-52EF7363D60F">
-            <kie:width>60</kie:width>
-            <kie:width>118</kie:width>
-            <kie:width>118</kie:width>
-            <kie:width>240</kie:width>
-          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape id="_DA3884D4-C400-4886-A9B5-A5755C196938" dmnElementRef="_58FDA848-1E68-4294-8282-AE901358B878" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="100" width="160" height="80" />
+      <dmndi:DMNShape id="_C7177877-7F16-4729-9971-23A51FCF1D8A" dmnElementRef="_BBBF015C-1C39-4C4A-AB0D-AB2D06D42FDE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="472" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="_96788743-A18B-453B-B244-87BCD55FEF70" dmnElementRef="_F7707522-2F10-4024-A80A-328B47503F2C" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="320" y="-60" width="160" height="80" />
+      <dmndi:DMNShape id="_6CFDE9FF-CFB0-4D52-882A-E23A4535328B" dmnElementRef="_E95E272D-902D-47C9-B82F-1D3598950BCC" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="772" y="472" width="160" height="80" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="_6E115488-20B4-422D-AEF9-6ECD334BFDAD" dmnElementRef="_293D4DFF-E015-4DCA-93A7-75AEBCFC1EDC" sourceElement="_DA3884D4-C400-4886-A9B5-A5755C196938" targetElement="_96788743-A18B-453B-B244-87BCD55FEF70">
-        <di:waypoint x="400" y="140" />
-        <di:waypoint x="400" y="20" />
+      <dmndi:DMNShape id="_9B1826FA-280A-4542-A135-C3C905A538B9" dmnElementRef="_70E21FAE-BB72-4A9A-92DE-9DA8331876BE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="332" y="112" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_74EFD46B-D0A9-4A07-A56C-CBEC6AF16F81" dmnElementRef="_68146672-50FB-4666-B89D-7B85313210C8" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="552" y="292" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_E5375AB7-13E2-480D-8D51-5EB381FF4034" dmnElementRef="_9C66E5B0-8669-4F80-9AE0-5A371B1D49FE" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="332" y="292" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_B27AC466-F0FA-403E-99C9-65B1CE133680" dmnElementRef="_F7408573-220F-4443-9176-49AF7DF39F48" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="112" y="292" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_375ABF31-D150-406B-BCEF-45E26F438811" dmnElementRef="_0EA72230-B5B7-462F-BA53-2B3B2F5FD552" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="772" y="292" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_9D076663-E0CD-4411-A3E4-977F3CB9089E" dmnElementRef="_497D8C5C-664A-402B-BD17-2EE4082DA79F" sourceElement="_B27AC466-F0FA-403E-99C9-65B1CE133680" targetElement="_9B1826FA-280A-4542-A135-C3C905A538B9">
+        <di:waypoint x="192" y="292" />
+        <di:waypoint x="412" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_4F15AB96-FA8F-4DA8-85F1-555FBF8659C2" dmnElementRef="_48C1C9E6-2D40-49E1-B310-28D457C7DE74" sourceElement="_E5375AB7-13E2-480D-8D51-5EB381FF4034" targetElement="_9B1826FA-280A-4542-A135-C3C905A538B9">
+        <di:waypoint x="412" y="292" />
+        <di:waypoint x="412" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_2B875748-9C2D-417D-BC00-04EB897D85F7" dmnElementRef="_A042BDEB-50F5-42B0-9C6A-63F669CCDEDC" sourceElement="_74EFD46B-D0A9-4A07-A56C-CBEC6AF16F81" targetElement="_9B1826FA-280A-4542-A135-C3C905A538B9">
+        <di:waypoint x="632" y="292" />
+        <di:waypoint x="412" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_EFD4C415-1044-45C5-9B98-A419A2E19321" dmnElementRef="_47D6D992-5FAA-4E89-A078-0A1CFB15CC78" sourceElement="_375ABF31-D150-406B-BCEF-45E26F438811" targetElement="_9B1826FA-280A-4542-A135-C3C905A538B9">
+        <di:waypoint x="852" y="292" />
+        <di:waypoint x="412" y="192" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_A5C18F50-06BE-44B1-BF6A-A9A71B59EC07" dmnElementRef="_C13C9320-41AB-4239-A459-7B58D60ACCFA" sourceElement="_C7177877-7F16-4729-9971-23A51FCF1D8A" targetElement="_74EFD46B-D0A9-4A07-A56C-CBEC6AF16F81">
+        <di:waypoint x="192" y="472" />
+        <di:waypoint x="632" y="372" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_F6217CF7-ECA8-4F46-B950-ED03592C7227" dmnElementRef="_567EB1B6-9324-429D-8BD7-AE2CC93E98D8" sourceElement="_C7177877-7F16-4729-9971-23A51FCF1D8A" targetElement="_E5375AB7-13E2-480D-8D51-5EB381FF4034">
+        <di:waypoint x="192" y="472" />
+        <di:waypoint x="412" y="372" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_59D6A39C-25E4-49A0-BD78-11F1F1D18591" dmnElementRef="_8891D537-91AF-482F-82FB-3A34D41687DA" sourceElement="_C7177877-7F16-4729-9971-23A51FCF1D8A" targetElement="_B27AC466-F0FA-403E-99C9-65B1CE133680">
+        <di:waypoint x="192" y="472" />
+        <di:waypoint x="192" y="372" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_AA8063C1-ED09-4447-848F-0AE4BB42392C" dmnElementRef="_40EB6A1A-F2E7-4F10-8049-74CC770A1F7D" sourceElement="_6CFDE9FF-CFB0-4D52-882A-E23A4535328B" targetElement="_375ABF31-D150-406B-BCEF-45E26F438811">
+        <di:waypoint x="852" y="472" />
+        <di:waypoint x="852" y="372" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
